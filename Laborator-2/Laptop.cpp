@@ -5,9 +5,6 @@ Laptop::Laptop()
 	ram = 0;
 	pret = 0;
 
-	sistemDeOperare = nullptr;
-	numeAdministrator = nullptr;
-
 	strcpy(serieProcesor, "N/A");
 
 	numeAdministrator = new char[strlen("Necunoscut") + 1];
@@ -22,16 +19,27 @@ Laptop::Laptop(const int ram, const float pret, const char serieProcesor[], cons
 	this->ram = ram;
 	this->pret = pret;
 
-	this->sistemDeOperare = nullptr;
-	this->numeAdministrator = nullptr;
-
 	strcpy(this->serieProcesor, serieProcesor);
 
-	this->numeAdministrator = new char[strlen(numeAdministrator) + 1];
-	strcpy(this->numeAdministrator, numeAdministrator);
+	if (numeAdministrator != nullptr)
+	{
+		this->numeAdministrator = new char[strlen(numeAdministrator) + 1];
+		strcpy(this->numeAdministrator, numeAdministrator);
+	}
+	else
+	{
+		this->numeAdministrator = nullptr;
+	}
 
-	this->sistemDeOperare = new char[strlen(sistemDeOperare) + 1];
-	strcpy(this->sistemDeOperare, sistemDeOperare);
+	if (sistemDeOperare != nullptr)
+	{
+		this->sistemDeOperare = new char[strlen(sistemDeOperare) + 1];
+		strcpy(this->sistemDeOperare, sistemDeOperare);
+	}
+	else
+	{
+		this->sistemDeOperare = nullptr;
+	}
 }
 
 Laptop::~Laptop()
@@ -45,9 +53,6 @@ Laptop::~Laptop()
 	{
 		delete[] sistemDeOperare;
 	}
-
-	sistemDeOperare = nullptr;
-	numeAdministrator = nullptr;
 }
 
 int Laptop::getRam() const
@@ -70,18 +75,16 @@ void Laptop::setNumeAdministrator(const char* numeAdministrator)
 	if (this->numeAdministrator)
 	{
 		delete[] this->numeAdministrator;
-		this->numeAdministrator = nullptr;
 	}
 
-	if (numeAdministrator)
+	if (numeAdministrator != nullptr)
 	{
 		this->numeAdministrator = new char[strlen(numeAdministrator) + 1];
 		strcpy(this->numeAdministrator, numeAdministrator);
 	}
 	else
 	{
-		this->numeAdministrator = new char[strlen("Necunoscut") + 1];
-		strcpy(this->numeAdministrator, "Necunoscut");
+		this->numeAdministrator = nullptr;
 	}
 }
 
@@ -95,25 +98,31 @@ void Laptop::modificareLaptop(const int ram, const float pret, const char serieP
 	if (this->numeAdministrator)
 	{
 		delete[] this->numeAdministrator;
-		this->numeAdministrator = nullptr;
 	}
 
 	if (this->sistemDeOperare)
 	{
 		delete[] this->sistemDeOperare;
-		this->sistemDeOperare = nullptr;
 	}
 
-	if (numeAdministrator)
+	if (numeAdministrator != nullptr)
 	{
 		this->numeAdministrator = new char[strlen(numeAdministrator) + 1];
 		strcpy(this->numeAdministrator, numeAdministrator);
 	}
+	else
+	{
+		this->numeAdministrator = nullptr;
+	}
 
-	if (sistemDeOperare)
+	if (sistemDeOperare != nullptr)
 	{
 		this->sistemDeOperare = new char[strlen(sistemDeOperare) + 1];
 		strcpy(this->sistemDeOperare, sistemDeOperare);
+	}
+	else
+	{
+		this->sistemDeOperare = nullptr;
 	}
 }
 
@@ -124,28 +133,34 @@ void Laptop::modificareLaptop(const Laptop& laptop)
 
 	strcpy(this->serieProcesor, laptop.serieProcesor);
 
-	if (numeAdministrator)
+	if (numeAdministrator != nullptr)
 	{
 		delete[] numeAdministrator;
-		numeAdministrator = nullptr;
 	}
 
-	if (sistemDeOperare)
+	if (sistemDeOperare != nullptr)
 	{
 		delete[] sistemDeOperare;
-		sistemDeOperare = nullptr;
 	}
 
-	if (laptop.numeAdministrator)
+	if (laptop.numeAdministrator != nullptr)
 	{
 		this->numeAdministrator = new char[strlen(laptop.numeAdministrator) + 1];
 		strcpy(this->numeAdministrator, laptop.numeAdministrator);
 	}
+	else
+	{
+		this->numeAdministrator = nullptr;
+	}
 
-	if (laptop.sistemDeOperare)
+	if (laptop.sistemDeOperare != nullptr)
 	{
 		this->sistemDeOperare = new char[strlen(laptop.sistemDeOperare) + 1];
 		strcpy(this->sistemDeOperare, laptop.sistemDeOperare);
+	}
+	else
+	{
+		this->sistemDeOperare = nullptr;
 	}
 }
 

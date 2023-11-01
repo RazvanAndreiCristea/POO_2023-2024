@@ -6,7 +6,7 @@ int main()
 	Laptop l2;
 
 	std::cout << "Sistemul de operare de pe laptop este " << l1.getSistemDeOperare() <<
-		" iar pretul laptopului este " << l1.getPret() << '\n';
+		" iar pretul laptopului este " << l1.getPret() << "\n\n";
 
 	l1.afisareLaptop();
 	l2.afisareLaptop();
