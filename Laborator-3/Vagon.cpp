@@ -46,7 +46,6 @@ Vagon::~Vagon()
 	if (producator != nullptr)
 	{
 		delete[] producator;
-		producator = nullptr;
 	}
 }
 
@@ -90,14 +89,14 @@ char* Vagon::getProducator() const
 
 void Vagon::setProducator(const char* producator)
 {
-	if (this->producator != nullptr)
-	{
-		delete[] this->producator;
-	}
-
 	if (producator == nullptr)
 	{
 		return;
+	}
+
+	if (this->producator != nullptr)
+	{
+		delete[] this->producator;
 	}
 
 	this->producator = new char[strlen(producator) + 1];
