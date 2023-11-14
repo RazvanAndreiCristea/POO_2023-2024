@@ -46,6 +46,7 @@ Vagon::~Vagon()
 	if (producator != nullptr)
 	{
 		delete[] producator;
+		producator = nullptr;
 	}
 }
 
