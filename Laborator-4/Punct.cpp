@@ -320,12 +320,6 @@ Punct operator/(const Punct& punct, const int& scalar)
 		p.y = punct.y / scalar;
 		p.z = punct.z / scalar;
 	}
-	else
-	{
-		p.x = 0;
-		p.y = 0;
-		p.z = 0;
-	}
 
 	return p;
 }
