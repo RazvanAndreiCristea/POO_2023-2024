@@ -314,9 +314,18 @@ Punct operator/(const Punct& punct, const int& scalar)
 {
 	Punct p;
 
-	p.x = punct.x / scalar;
-	p.y = punct.y / scalar;
-	p.z = punct.z / scalar;
+	if (scalar != 0)
+	{
+		p.x = punct.x / scalar;
+		p.y = punct.y / scalar;
+		p.z = punct.z / scalar;
+	}
+	else
+	{
+		p.x = 0;
+		p.y = 0;
+		p.z = 0;
+	}
 
 	return p;
 }
