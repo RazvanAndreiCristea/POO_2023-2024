@@ -50,5 +50,7 @@ int main()
 
 	delete[] utils::resedinte;
 
+	utils::resedinte = nullptr;
+
 	return 0;
 }
